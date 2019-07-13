@@ -4,6 +4,9 @@
   "workspaces": {
     "packages": [
       "packages/*"
+    ],
+    "nohoist": [
+      "**/react-transform-hmr"
     ]
   },
   "version": "2.0.0",
@@ -17,7 +20,9 @@
   },
   "scripts": {
     "build": "lerna run build",
+    "build:types": "lerna run generate:types",
     "clean": "lerna run clean",
+    "example:mobile": "(cd examples/mobile; yarn start)",
     "test": "yarn test:lint && yarn test:unit && yarn test:types",
     "test:lint": "eslint packages/**/src/*.ts",
     "test:types": "tsc --noEmit --declaration false -emitDeclarationOnly false",
